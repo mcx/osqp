@@ -190,33 +190,33 @@ Then we update the vectors <span class="math notranslate nohighlight">\(q\)</spa
 </section>
 <section id="julia">
 <h2>Julia<a class="headerlink" href="#julia" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">OSQP</span>
-<span class="k">using</span> <span class="n">Compat</span><span class="o">.</span><span class="n">SparseArrays</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">OSQP</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">Compat</span><span class="o">.</span><span class="n">SparseArrays</span><span class="w"></span>
 
-<span class="c"># Define problem data</span>
-<span class="n">P</span> <span class="o">=</span> <span class="n">sparse</span><span class="p">([</span><span class="mf">4.</span> <span class="mf">1.</span><span class="p">;</span> <span class="mf">1.</span> <span class="mf">2.</span><span class="p">])</span>
-<span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">;</span> <span class="mf">1.</span><span class="p">]</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">sparse</span><span class="p">([</span><span class="mf">1.</span> <span class="mf">1.</span><span class="p">;</span> <span class="mf">1.</span> <span class="mf">0.</span><span class="p">;</span> <span class="mf">0.</span> <span class="mf">1.</span><span class="p">])</span>
-<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">;</span> <span class="mf">0.</span><span class="p">;</span> <span class="mf">0.</span><span class="p">]</span>
-<span class="n">u</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">;</span> <span class="mf">0.7</span><span class="p">;</span> <span class="mf">0.7</span><span class="p">]</span>
+<span class="c"># Define problem data</span><span class="w"></span>
+<span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sparse</span><span class="p">([</span><span class="mf">4.</span><span class="w"> </span><span class="mf">1.</span><span class="p">;</span><span class="w"> </span><span class="mf">1.</span><span class="w"> </span><span class="mf">2.</span><span class="p">])</span><span class="w"></span>
+<span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1.</span><span class="p">;</span><span class="w"> </span><span class="mf">1.</span><span class="p">]</span><span class="w"></span>
+<span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sparse</span><span class="p">([</span><span class="mf">1.</span><span class="w"> </span><span class="mf">1.</span><span class="p">;</span><span class="w"> </span><span class="mf">1.</span><span class="w"> </span><span class="mf">0.</span><span class="p">;</span><span class="w"> </span><span class="mf">0.</span><span class="w"> </span><span class="mf">1.</span><span class="p">])</span><span class="w"></span>
+<span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1.</span><span class="p">;</span><span class="w"> </span><span class="mf">0.</span><span class="p">;</span><span class="w"> </span><span class="mf">0.</span><span class="p">]</span><span class="w"></span>
+<span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1.</span><span class="p">;</span><span class="w"> </span><span class="mf">0.7</span><span class="p">;</span><span class="w"> </span><span class="mf">0.7</span><span class="p">]</span><span class="w"></span>
 
-<span class="c"># Crate OSQP object</span>
-<span class="n">prob</span> <span class="o">=</span> <span class="n">OSQP</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span>
+<span class="c"># Crate OSQP object</span><span class="w"></span>
+<span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OSQP</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span><span class="w"></span>
 
-<span class="c"># Setup workspace</span>
-<span class="n">OSQP</span><span class="o">.</span><span class="n">setup!</span><span class="p">(</span><span class="n">prob</span><span class="p">;</span> <span class="n">P</span><span class="o">=</span><span class="n">P</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="n">A</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="n">l</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
+<span class="c"># Setup workspace</span><span class="w"></span>
+<span class="n">OSQP</span><span class="o">.</span><span class="n">setup!</span><span class="p">(</span><span class="n">prob</span><span class="p">;</span><span class="w"> </span><span class="n">P</span><span class="o">=</span><span class="n">P</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="o">=</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="o">=</span><span class="n">u</span><span class="p">)</span><span class="w"></span>
 
-<span class="c"># Solve problem</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">OSQP</span><span class="o">.</span><span class="n">solve!</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
+<span class="c"># Solve problem</span><span class="w"></span>
+<span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OSQP</span><span class="o">.</span><span class="n">solve!</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span><span class="w"></span>
 
-<span class="c"># Update problem</span>
-<span class="n">q_new</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.</span><span class="p">;</span> <span class="mf">3.</span><span class="p">]</span>
-<span class="n">l_new</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.</span><span class="p">;</span> <span class="o">-</span><span class="mf">1.</span><span class="p">;</span> <span class="o">-</span><span class="mf">1.</span><span class="p">]</span>
-<span class="n">u_new</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.</span><span class="p">;</span> <span class="mf">2.5</span><span class="p">;</span> <span class="mf">2.5</span><span class="p">]</span>
-<span class="n">OSQP</span><span class="o">.</span><span class="n">update!</span><span class="p">(</span><span class="n">prob</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">q_new</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="n">l_new</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">u_new</span><span class="p">)</span>
+<span class="c"># Update problem</span><span class="w"></span>
+<span class="n">q_new</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">2.</span><span class="p">;</span><span class="w"> </span><span class="mf">3.</span><span class="p">]</span><span class="w"></span>
+<span class="n">l_new</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">2.</span><span class="p">;</span><span class="w"> </span><span class="o">-</span><span class="mf">1.</span><span class="p">;</span><span class="w"> </span><span class="o">-</span><span class="mf">1.</span><span class="p">]</span><span class="w"></span>
+<span class="n">u_new</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">2.</span><span class="p">;</span><span class="w"> </span><span class="mf">2.5</span><span class="p">;</span><span class="w"> </span><span class="mf">2.5</span><span class="p">]</span><span class="w"></span>
+<span class="n">OSQP</span><span class="o">.</span><span class="n">update!</span><span class="p">(</span><span class="n">prob</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="o">=</span><span class="n">q_new</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="n">l_new</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="o">=</span><span class="n">u_new</span><span class="p">)</span><span class="w"></span>
 
-<span class="c"># Solve updated problem</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">OSQP</span><span class="o">.</span><span class="n">solve!</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
+<span class="c"># Solve updated problem</span><span class="w"></span>
+<span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OSQP</span><span class="o">.</span><span class="n">solve!</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
